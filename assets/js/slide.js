@@ -7,9 +7,6 @@
     'assets/images/slide-4.jpg',
     'assets/images/slide-5.jpg',
     'assets/images/slide-6.jpg',
-    'assets/images/slide-6.jpg',
-    'assets/images/slide-6.jpg',
-    'assets/images/slide-6.jpg',
   ];
 
   const createHtmlStructure = ( sliderSelector, images ) => {
