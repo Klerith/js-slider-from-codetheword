@@ -51,8 +51,12 @@
   left: calc(50% + 430px)
 }
 
+.slider .item:nth-child(6) {
+  left: calc(50% + 650px);
+}
+
 /* Hide all after nth child 5 */
-.slider .item:nth-child(n+6) {
+.slider .item:nth-child(n+7) {
   display: none;
 }
 
