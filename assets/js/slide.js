@@ -1,12 +1,12 @@
 ( () => {
 
   const slideImages = [
-    'assets/images/slide-1.jpg',
-    'assets/images/slide-2.png',
-    'assets/images/slide-3.png',
-    'assets/images/slide-4.jpg',
-    'assets/images/slide-5.jpg',
-    'assets/images/slide-6.jpg',
+    {img: 'assets/images/slide-1.jpg', title: 'Ea id minim', description: 'Consectetur enim culpa exercitation excepteur elit dolore aliquip dolor deserunt duis ea.'},
+    {img: 'assets/images/slide-2.png', title: 'Nisi sint qui', description: 'Irure elit ex deserunt cupidatat enim.'},
+    {img: 'assets/images/slide-3.png', title: 'Mollit non', description: 'Irure incididunt voluptate veniam aliquip aliqua voluptate duis est ullamco labore.'},
+    {img: 'assets/images/slide-4.jpg', title: 'Id incididunt', description: 'Veniam laborum fugiat reprehenderit magna ut cupidatat aute do.'},
+    {img: 'assets/images/slide-5.jpg', title: 'Commodo ad ', description: 'Velit tempor amet adipisicing quis voluptate mollit voluptate fugiat irure incididunt ipsum.'},
+    {img: 'assets/images/slide-6.jpg', title: 'Elit exercitation', description: 'Tempor minim officia est eiusmod ut amet incididunt minim pariatur aliquip occaecat.'},
   ];
 
   const createHtmlStructure = ( sliderSelector, images ) => {
@@ -14,7 +14,8 @@
     const parent = document.querySelector( sliderSelector, images );
 
     // Slides
-    images.forEach( ( img, index ) => {
+    images.forEach( ( slideImg, index ) => {
+      const { img, title, description } = slideImg;
       const slideItem = `
       <div
         class="item"
@@ -22,8 +23,8 @@
         data-attribute="${ index }"
       >
         <div class="content">
-          <div class="name">Algún lugar</div>
-          <div class="description">Descripción del lugar</div>
+          <div class="name">${ title }</div>
+          <div class="description">${ description }</div>
           <button>Ver más</button>
         </div>
       </div>
