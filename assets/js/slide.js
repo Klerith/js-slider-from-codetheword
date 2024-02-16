@@ -9,23 +9,13 @@
     'assets/images/slide-6.jpg',
   ];
 
+  const createHtmlStructure = ( sliderSelector, images ) => {
 
-  // Referencias
-  const slider = document.querySelector( '.slider' );
+    const parent = document.querySelector( sliderSelector, images );
 
-
-
-
-  // Funciones
-  const initSlider = () => {
-    createSlides();
-    createControlButtons();
-  };
-
-
-  const createSlides = () => {
-    slideImages.forEach( ( img ) => {
-      const divContent = `
+    // Slides
+    images.forEach( ( img ) => {
+      const slideItem = `
       <div
         class="item"
         style="background-image: url('${ img }')"
@@ -37,31 +27,45 @@
         </div>
       </div>
       `;
-      const divFragment = document.createRange().createContextualFragment( divContent );
-
-      slider.appendChild( divFragment );
+      const divFragment = document.createRange().createContextualFragment( slideItem );
+      parent.appendChild( divFragment );
     } );
-  };
 
-  const createControlButtons = () => {
+    // Buttons
     const html = `
     <div class="buttons">
-      <button> Prev</button>
-      <button> Next</button>
+      <button class="prev"> Prev</button>
+      <button class="next"> Next</button>
     </div>
     `;
     const fragment = document.createRange().createContextualFragment( html );
-    slider.appendChild( fragment );
+    parent.appendChild( fragment );
   };
 
+  // Initializations
+  
+  createHtmlStructure( '.slider', slideImages );
+  
+  
+  // References
+  const $slider = document.querySelector( '.slider' );
+  const $next = document.querySelector( '.next' );
+  const $prev = document.querySelector( '.prev' );
+
+  // Listeners
+  $next.addEventListener( 'click', () => {
+    const items = document.querySelectorAll( '.item' );
+    $slider.appendChild( items[0] );
+  } );
+
+  $prev.addEventListener( 'click', () => {
+    const items = document.querySelectorAll( '.item' );
+    $slider.prepend( items[ items.length - 1 ] );
+  } );
 
 
 
 
-
-
-  // Init
-  initSlider();
 
 
 
